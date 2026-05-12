@@ -1,8 +1,11 @@
 {
   "rewrites": [
-    { "source": "/app", "destination": "/app.html" },
-    { "source": "/spot", "destination": "/spot.html" },
-    { "source": "/api/claude", "destination": "/api/claude" },
-    { "source": "/api/places", "destination": "/api/places" }
+    { "source": "/privacy", "destination": "/privacy.html" },
+    { "source": "/terms", "destination": "/terms.html" },
+    { "source": "/email-confirmed", "destination": "/email-confirmed.html" }
+  ],
+  "routes": [
+    { "handle": "error" },
+    { "src": "/(.*)", "status": 404, "dest": "/404.html" }
   ]
 }
