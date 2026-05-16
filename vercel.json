@@ -3,6 +3,7 @@
     { "source": "/privacy", "destination": "/privacy.html" },
     { "source": "/terms", "destination": "/terms.html" },
     { "source": "/support", "destination": "/support.html" },
+    { "source": "/reset-password", "destination": "/reset-password.html" },
     { "source": "/email-confirmed", "destination": "/email-confirmed.html" }
   ],
   "routes": [
