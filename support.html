@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Support — NomadAI</title>
+<link rel="canonical" href="https://nomadai.us/support" />
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{--sand:#e8d5b7;--tan:#c4a06a;--dark:#1c2820;--darker:#151e18;--card:#2a3830;--muted:#7a9a88;--body:#c8b89a;--nav-bg:rgba(28,40,32,0.95);--moss:#8ac4a0;--rust:#c47a7a;}
+body{font-family:'Nunito',sans-serif;background:var(--darker);color:var(--sand);line-height:1.7;padding:0;}
+nav{padding:18px 32px;background:var(--nav-bg);border-bottom:1px solid rgba(138,172,122,0.12);display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;}
+.nav-logo{font-weight:800;font-size:17px;color:var(--sand);text-decoration:none;display:inline-flex;align-items:center;gap:10px;}
+.nav-logo img{width:28px;height:28px;border-radius:7px;object-fit:cover;display:block;}
+.nav-back{color:var(--tan);text-decoration:none;font-weight:700;font-size:13px;}
+.container{max-width:680px;margin:0 auto;padding:48px 24px 80px;}
+h1{font-size:28px;font-weight:900;color:var(--sand);margin-bottom:28px;}
+h2{font-size:16px;font-weight:800;color:var(--tan);margin:32px 0 10px;text-transform:uppercase;letter-spacing:.06em;}
+p{font-size:14px;color:var(--body);margin-bottom:14px;}
+ul{font-size:14px;color:var(--body);margin:0 0 14px 20px;}
+li{margin-bottom:6px;}
+a{color:var(--tan);}
+
+.form-card{background:var(--card);border:1px solid rgba(196,160,106,0.18);border-radius:12px;padding:24px;margin-bottom:14px;}
+.form-card h2:first-child{margin-top:0;}
+.form-row{margin-bottom:14px;}
+.form-row label{display:block;font-size:11px;font-weight:800;color:var(--muted);margin-bottom:6px;text-transform:uppercase;letter-spacing:.1em;}
+.form-row input[type=email], .form-row textarea{width:100%;background:var(--darker);border:1px solid rgba(138,172,122,0.18);border-radius:8px;padding:10px 12px;color:var(--sand);font-family:inherit;font-size:14px;line-height:1.5;}
+.form-row textarea{min-height:140px;resize:vertical;}
+.form-row input[type=email]:focus, .form-row textarea:focus{outline:none;border-color:var(--tan);}
+.honeypot{position:absolute;left:-9999px;height:0;width:0;overflow:hidden;}
+.submit-btn{background:var(--tan);color:var(--darker);font-family:inherit;font-weight:800;font-size:14px;padding:11px 22px;border:none;border-radius:8px;cursor:pointer;transition:opacity .15s;}
+.submit-btn:hover:not(:disabled){opacity:.88;}
+.submit-btn:disabled{opacity:.4;cursor:not-allowed;}
+.form-result{margin-top:14px;font-size:13px;line-height:1.5;}
+.form-result.success{color:var(--moss);}
+.form-result.error{color:var(--rust);}
+.fallback{font-size:13px;color:var(--muted);margin-bottom:40px;text-align:center;}
+.fallback a{color:var(--tan);font-weight:700;}
+
+.footer{text-align:center;padding:32px;font-size:12px;color:var(--muted);}
+@media (prefers-color-scheme: light){
+  :root{
+    --sand:#22312a;
+    --tan:#9c5b3a;
+    --dark:#e8dec3;
+    --darker:#f1e9d3;
+    --card:#ede1c5;
+    --muted:#5a6b5d;
+    --body:#4d5a52;
+    --nav-bg:rgba(241,233,211,0.95);
+    --moss:#4d8a66;
+    --rust:#9c4a4a;
+  }
+}
+</style>
+</head>
+<body>
+<nav>
+  <a class="nav-logo" href="/"><img src="/app-icon.jpg" alt="Nomad app icon" width="28" height="28" />Nomad</a>
+  <a class="nav-back" href="/">← Back to home</a>
+</nav>
+<div class="container">
+  <h1>Support</h1>
+
+  <form class="form-card" id="support-form" novalidate>
+    <div class="form-row">
+      <label for="support-email">Your email <span style="font-weight:400;text-transform:none;letter-spacing:0;">(optional, so we can reply)</span></label>
+      <input type="email" id="support-email" name="email" maxlength="254" autocomplete="email" placeholder="you@example.com"/>
+    </div>
+    <div class="form-row">
+      <label for="support-message">Message</label>
+      <textarea id="support-message" name="message" required maxlength="2000" placeholder="Tell us what's going on. The more detail, the faster we can help."></textarea>
+    </div>
+    <div class="honeypot" aria-hidden="true">
+      <label for="hp-website">Don't fill this</label>
+      <input type="text" id="hp-website" name="website" tabindex="-1" autocomplete="off"/>
+    </div>
+    <button type="submit" class="submit-btn" id="support-submit">Send message</button>
+    <div class="form-result" id="support-result" role="status" aria-live="polite"></div>
+  </form>
+  <div class="fallback">Or email <a href="mailto:support@nomadai.us">support@nomadai.us</a> directly. Typical reply within 1–2 business days.</div>
+
+  <h2>Common Questions</h2>
+
+  <h2>I can't sign in</h2>
+  <p>Make sure you're using the same sign-in method you signed up with (Apple or email). If you signed up with Apple, you won't have a password — tap "Sign in with Apple" again. For email accounts, use the "Forgot password?" link on the sign-in screen, or send us a message above and we'll help.</p>
+
+  <h2>How do I delete my account?</h2>
+  <p>Open NomadAI → Settings → Account → Delete Account. This permanently removes your profile, saved spots, trips, reviews, and Passport stamps from every device. It cannot be undone.</p>
+
+  <h2>The AI search didn't return what I expected</h2>
+  <p>AI search results are generated fresh each time, so the same query can return different campsites on different runs. Try rephrasing — adding a region ("near Bend, OR"), a constraint ("with showers" or "BLM only"), or a timeframe ("this weekend") usually sharpens the results. If a result looks wrong, send us a message with the query and we'll investigate.</p>
+
+  <h2>A campsite's details are wrong or outdated</h2>
+  <p>Campsite data is aggregated from federal reservation systems, public-land databases, and community-mapped overland sources, then refreshed weekly. If you see something inaccurate — wrong coordinates, closed access road, broken amenities listing — let us know and we'll correct it.</p>
+
+  <h2>The app crashed</h2>
+  <p>NomadAI captures crash reports automatically (anonymized — no personal data attached). If it keeps happening, send us a message describing what you were doing and we'll dig in. Restarting the app or reinstalling usually resolves transient issues.</p>
+
+  <h2>Feedback, feature requests, or anything else</h2>
+  <p>Use the form above, or email <a href="mailto:support@nomadai.us">support@nomadai.us</a>. The app also has a Feedback button inside the Help section that goes to the same place.</p>
+</div>
+<div class="footer">© 2026 NomadAI · <a href="/privacy">Privacy</a> · <a href="/terms">Terms</a></div>
+
+<script>
+(function () {
+  var SUPABASE_URL = 'https://gcvyzunlihlnjmhkwkbz.supabase.co';
+  var SUPABASE_KEY = 'sb_publishable_dlYojKNrPU7VsdQvFkrGRw_-gNymRID';
+
+  var form = document.getElementById('support-form');
+  var btn = document.getElementById('support-submit');
+  var result = document.getElementById('support-result');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+    result.textContent = '';
+    result.className = 'form-result';
+
+    // Honeypot — bots will fill the hidden field; real users won't.
+    // Silently drop the submission with a fake success so the bot
+    // doesn't retry.
+    if (form.website.value) {
+      form.reset();
+      result.textContent = "Thanks — we'll be in touch.";
+      result.className = 'form-result success';
+      return;
+    }
+
+    var message = form.message.value.trim();
+    if (message.length < 1) {
+      result.textContent = 'Please add a message before sending.';
+      result.className = 'form-result error';
+      form.message.focus();
+      return;
+    }
+    if (message.length > 2000) {
+      result.textContent = 'Message is too long (max 2000 characters).';
+      result.className = 'form-result error';
+      return;
+    }
+
+    var emailRaw = form.email.value.trim();
+    var email = emailRaw.length ? emailRaw : null;
+    if (email && email.length > 254) {
+      result.textContent = 'Email address is too long.';
+      result.className = 'form-result error';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    try {
+      var res = await fetch(SUPABASE_URL + '/rest/v1/feedback', {
+        method: 'POST',
+        headers: {
+          'apikey': SUPABASE_KEY,
+          'Authorization': 'Bearer ' + SUPABASE_KEY,
+          'Content-Type': 'application/json',
+          'Prefer': 'return=minimal'
+        },
+        body: JSON.stringify({
+          category: 'support',
+          body: message,
+          contact_email: email
+        })
+      });
+
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+
+      form.reset();
+      result.textContent = "Got it. We'll reply within 1–2 business days" + (email ? ' to ' + emailRaw + '.' : '. Leave an email next time so we can get back to you.');
+      result.className = 'form-result success';
+    } catch (err) {
+      result.textContent = "Couldn't send right now. Try emailing support@nomadai.us instead.";
+      result.className = 'form-result error';
+    } finally {
+      btn.disabled = false;
+      btn.textContent = 'Send message';
+    }
+  });
+})();
+</script>
+</body>
+</html>
